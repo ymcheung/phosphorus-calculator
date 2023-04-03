@@ -21,7 +21,7 @@ export default defineConfig({
     manifest: {
       name: 'Astro PWA',
       short_name: 'Astro PWA',
-      theme_color: '#ffffff',
+      theme_color: '#fefeff',
       icons: [{
         src: 'pwa-192x192.png',
         sizes: '192x192',

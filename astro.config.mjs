@@ -19,8 +19,8 @@ export default defineConfig({
     includeAssets: ['favicon.svg'],
     registerType: 'autoUpdate',
     manifest: {
-      name: 'Astro PWA',
-      short_name: 'Astro PWA',
+      name: '貓主食罐磷含量計算機',
+      short_name: '貓磷計算機',
       theme_color: '#fefeff',
       icons: [{
         src: 'pwa-192x192.png',

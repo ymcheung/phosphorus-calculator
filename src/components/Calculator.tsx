@@ -32,14 +32,14 @@ export default function Calculator() {
             <div>
               <Field of={calculatorForm} name="kcal" validate={[required('Please enter your email.')]}>
                 {(field) =>
-                  <TextInput type="number" label="熱量" value={field.value} maxLength={5} error={field.error} {...field.props} required placeholder="大卡 (kcal)" />
+                  <TextInput inputmode="numeric" pattern="[0-9]*" label="熱量" value={field.value} maxLength={5} error={field.error} {...field.props} required placeholder="大卡 (kcal)" />
                 }
               </Field>
             </div>
             <div>
               <Field of={calculatorForm} name="gram" validate={[required('Please enter your email.')]}>
                 {(field) =>
-                  <TextInput type="number" label="重量" value={field.value} maxLength={5} error={field.error} {...field.props} required placeholder="公克 (g)" />
+                  <TextInput inputmode="numeric" pattern="[0-9]*" label="重量" value={field.value} maxLength={5} error={field.error} {...field.props} required placeholder="公克 (g)" />
                 }
               </Field>
             </div>
@@ -50,7 +50,7 @@ export default function Calculator() {
             {(field) =>
               <>
                 <label class="label ml:8" for={field.name}>磷含量</label>
-                <input id={field.name} class="input" type="number" value={field.value} {...field.props} maxLength={5} required placeholder="百分比" />
+                <input id={field.name} class="input" inputmode="numeric" pattern="[0-9]*" value={field.value} {...field.props} maxLength={5} required placeholder="百分比" />
               </>}
           </Field>
         </div>

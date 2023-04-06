@@ -2,7 +2,9 @@ import { JSX, splitProps } from 'solid-js';
 
 type TextInputProps = {
   name: string;
-  type: 'text' | 'email' | 'tel' | 'password' | 'url' | 'number' | 'date';
+  // type: 'text' | 'email' | 'tel' | 'password' | 'url' | 'number' | 'date';
+  inputmode?: string;
+  pattern?: string;
   label?: string;
   placeholder?: string;
   value: string | number | undefined;
@@ -25,12 +27,13 @@ export function TextInput(props: TextInputProps) {
         </label>
       )}
       <input
-        {...inputProps}
         id={props.name}
         class="input"
+        type="text"
         value={props.value || ''}
         aria-invalid={!!props.error}
         aria-errormessage={`${props.name}-error`}
+        {...inputProps}
       />
       {props.error && <div id={`${props.name}-error`}>{props.error}</div>}
     </div>

@@ -22,7 +22,7 @@ export function TextInput(props: TextInputProps) {
   return (
     <div>
       {props.label && (
-        <label class="label" for={props.name}>
+        <label class="label ml:8" for={props.name}>
           {props.label} {props.required && <span>*</span>}
         </label>
       )}

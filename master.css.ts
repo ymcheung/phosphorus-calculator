@@ -3,20 +3,18 @@ import MasterCSS, { Config } from '@master/css';
 export const config: Config = {
   themes: {},
   colors: {
-    accent: {
-      // 0: 'hsl(237deg,63%,15%)',
-      // 1200: 'hsl(182deg,100%,90%)'
-      100: '#1A2074',
-      1100: '#b8cccc',
-      1400: '#E1F4F4',
-      1500: '#f0fafa'
-    }
+    plain: '#fefeff',
+    primary: {
+      100: '#1746A2',
+      300: '#3D87F5',
+      500: '#5F9DF7'
+    },
   },
   classes: {
     fontSans: `font:system|-apple-system|'.SFNSText-Regular'|'San Francisco'|'Roboto'|'Segoe UI'|'Helvetica Neue'|'Lucida Grande'|sans-serif`,
     container: 'max-width:640px mx:auto px:24',
-    label: 'd:inline-block mb:8 pt:12 pb:4 line-height:1',
-    input: 'd:inline-block width:100% p:8 color:accent-100 border:2|solid|accent-1100 r:8 outline:none border-color:accent-100:focus {bg:accent-1400;border:accent-1400}:not(:placeholder-shown) appearance:none'
+    label: 'd:inline-block mb:2 py:8 color:primary-300 font:20 font:bold line-height:1',
+    input: 'd:inline-block width:100% px:8 py:12 color:plain border:2|solid|primary-500 r:8 outline:none border-color:primary-300:focus {bg:primary-500;border-color:primary-500}:not(:placeholder-shown) appearance:none color:primary-500::placeholder'
   },
   values: {},
   semantics: {},

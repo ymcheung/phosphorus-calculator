@@ -19,27 +19,27 @@ export default function Calculator() {
 
   return (
     <>
-      <h2>磷含量計算</h2>
-      <div>
+      <h2 class="color:primary-100">磷含量計算</h2>
+      <div class="mb:16">
         <span></span>
         <span>mg/100 大卡</span>
       </div>
       <hr />
       <Form class="d:grid gap-y:16" of={calculatorForm}>
         <div>
-          <strong class="f:20">代謝能</strong>
+          <strong class="f:24 color:primary-500">代謝能</strong>
           <div class="d:grid grid:auto/1fr|1fr gap-x:16 mx:-8">
             <div>
               <Field of={calculatorForm} name="kcal" validate={[required('Please enter your email.')]}>
                 {(field) =>
-                  <TextInput inputmode="numeric" pattern="[0-9]*" label="熱量" value={field.value} maxLength={5} error={field.error} {...field.props} required placeholder="大卡 (kcal)" />
+                  <TextInput inputmode="decimal" pattern="[0-9]*" label="熱量" value={field.value} maxLength={5} error={field.error} {...field.props} required placeholder="大卡 (kcal)" />
                 }
               </Field>
             </div>
             <div>
               <Field of={calculatorForm} name="gram" validate={[required('Please enter your email.')]}>
                 {(field) =>
-                  <TextInput inputmode="numeric" pattern="[0-9]*" label="重量" value={field.value} maxLength={5} error={field.error} {...field.props} required placeholder="公克 (g)" />
+                  <TextInput inputmode="decimal" pattern="[0-9]*" label="重量" value={field.value} maxLength={5} error={field.error} {...field.props} required placeholder="公克 (g)" />
                 }
               </Field>
             </div>
@@ -50,7 +50,7 @@ export default function Calculator() {
             {(field) =>
               <>
                 <label class="label ml:8" for={field.name}>磷含量</label>
-                <input id={field.name} class="input" inputmode="numeric" pattern="[0-9]*" value={field.value} {...field.props} maxLength={5} required placeholder="百分比" />
+                <input id={field.name} class="input" inputmode="decimal" pattern="[0-9]*" value={field.value} {...field.props} maxLength={5} required placeholder="百分比" />
               </>}
           </Field>
         </div>

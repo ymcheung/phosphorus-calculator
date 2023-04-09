@@ -3,5 +3,5 @@ import DefaultLayout from '../layouts/DefaultLayout.astro';
 import Calculator from '../components/Calculator';
 ---
 <DefaultLayout title="貓主食罐磷含量計算機">
-  <Calculator />
+  <Calculator client:only="solid-js" />
 </DefaultLayout>

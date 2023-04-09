@@ -1,45 +1,103 @@
 import { createStore } from "solid-js/store";
-import { createForm, Form, Field, required } from '@modular-forms/solid';
+import { createForm, Form, Field, required, setValue, getValue, getValues, SubmitHandler } from '@modular-forms/solid';
 import { TextInput } from "./TextInput";
 
 type CalculatorForm = {
-  kcal: number;
-  gram: number;
-  phosPercent: number;
-  name: string;
+  kcal?: number;
+  gram?: number;
+  phosPercent?: number;
+  name?: string;
 }
 
 export default function Calculator() {
-  const [saved, setSaved] = createStore([]);
-  const calculatorForm = createForm<CalculatorForm>();
-
+  // const [temp, setTemp] = createStore({});
+  const calculatorForm = createForm<CalculatorForm>({
+    validateOn: 'blur'
+  });
   // const addSaved = (text) => {
-  //   setSaved([...saved, { id: ++itemId, energy: {}, archieved: false }]);
+  //   setSaved([...saved, { energy: {}, archieved: false }]);
   // };
+
+
+  const handleOnBlur = (name, value) => {
+    setValue(calculatorForm, name, value)
+  }
+
+  const handleCalculation = () => {
+    const formValues = getValues(calculatorForm) || {};
+    const energy = formValues.gram * 100 / formValues.kcal;
+    const phosPercent = formValues.phosPercent / 100;
+
+    const result = energy * phosPercent * 1000;
+
+    return result;
+  }
+
+  const handleSubmit: SubmitHandler<CalculatorForm> = (values, event) => {
+    // Runs on client
+    console.log({ values })
+  };
 
   return (
     <>
       <h2 class="color:primary-100">磷含量計算</h2>
       <div class="mb:16">
-        <span></span>
+        <span>{handleCalculation()}</span>
         <span>mg/100 大卡</span>
       </div>
       <hr />
-      <Form class="d:grid gap-y:16" of={calculatorForm}>
+      <Form class="d:grid gap-y:16" of={calculatorForm} onSubmit={handleSubmit}>
         <div>
           <strong class="f:24 color:primary-500">代謝能</strong>
           <div class="d:grid grid:auto/1fr|1fr gap-x:16 mx:-8">
             <div>
-              <Field of={calculatorForm} name="kcal" validate={[required('Please enter your email.')]}>
-                {(field) =>
-                  <TextInput inputmode="decimal" pattern="[0-9]*" label="熱量" value={field.value} maxLength={5} error={field.error} {...field.props} required placeholder="大卡 (kcal)" />
-                }
+              <Field
+                of={calculatorForm}
+                name="kcal"
+                validate={[
+                  required('Please enter your email.')
+                ]}>
+                {(field) => {
+                  return (
+                    <TextInput
+                      inputmode="decimal"
+                      pattern="[0-9]*"
+                      label="熱量"
+                      value={field.value}
+                      maxLength={5}
+                      error={field.error}
+                      {...field.props}
+                      required
+                      placeholder="大卡 (kcal)"
+                      onBlur={() =>
+                        handleOnBlur('kcal', field.value)
+                      }
+                    />
+                  )
+                }}
               </Field>
             </div>
             <div>
-              <Field of={calculatorForm} name="gram" validate={[required('Please enter your email.')]}>
+              <Field
+                of={calculatorForm}
+                name="gram"
+                validate={[required('Please enter your email.')]}
+              >
                 {(field) =>
-                  <TextInput inputmode="decimal" pattern="[0-9]*" label="重量" value={field.value} maxLength={5} error={field.error} {...field.props} required placeholder="公克 (g)" />
+                  <TextInput
+                    inputmode="decimal"
+                    pattern="[0-9]*"
+                    label="重量"
+                    value={field.value}
+                    maxLength={5}
+                    error={field.error}
+                    {...field.props}
+                    required
+                    placeholder="公克 (g)"
+                    onBlur={() =>
+                      handleOnBlur('gram', field.value)
+                    }
+                  />
                 }
               </Field>
             </div>
@@ -48,10 +106,21 @@ export default function Calculator() {
         <div class="mx:-8">
           <Field of={calculatorForm} name="phosPercent" validate={[required('Please enter your email.')]}>
             {(field) =>
-              <>
-                <label class="label ml:8" for={field.name}>磷含量</label>
-                <input id={field.name} class="input" inputmode="decimal" pattern="[0-9]*" value={field.value} {...field.props} maxLength={5} required placeholder="百分比" />
-              </>}
+              <TextInput
+                inputmode="decimal"
+                pattern="[0-9]*"
+                label="磷含量"
+                value={field.value}
+                maxLength={5}
+                error={field.error}
+                {...field.props}
+                required
+                placeholder="百分比"
+                onBlur={() =>
+                  handleOnBlur('phosPercent', field.value)
+                }
+              />
+            }
           </Field>
         </div>
         <div class="mx:-8">
@@ -65,9 +134,9 @@ export default function Calculator() {
           </Field>
         </div>
         <div>
-          <button type="button">記下來</button>
+          <button type="submit">記下來</button>
         </div>
-      </Form>
+      </Form >
     </>
   )
 }

@@ -3,7 +3,7 @@ import { JSX, splitProps } from 'solid-js';
 type TextInputProps = {
   name: string;
   // type: 'text' | 'email' | 'tel' | 'password' | 'url' | 'number' | 'date';
-  inputmode?: string;
+  inputmode?: 'decimal' | undefined;
   pattern?: string;
   label?: string;
   placeholder?: string;

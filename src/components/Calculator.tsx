@@ -3,10 +3,10 @@ import { createForm, Form, Field, required, setValue, getValue, getValues, Submi
 import { TextInput } from "./TextInput";
 
 type CalculatorForm = {
-  kcal?: number;
-  gram?: number;
-  phosPercent?: number;
-  name?: string;
+  kcal?: number | undefined;
+  gram?: number | undefined;
+  phosPercent?: number | undefined;
+  name?: string | undefined;
 }
 
 export default function Calculator() {
@@ -20,12 +20,15 @@ export default function Calculator() {
 
 
   const handleOnBlur = (name, value) => {
-    setValue(calculatorForm, name, value)
+    const valueIsNumber = !isNaN(value) ? value : 0;
+    setValue(calculatorForm, name, valueIsNumber)
   }
 
   const handleCalculation = () => {
+    if (!getValues(calculatorForm)) return '?';
+
     const formValues = getValues(calculatorForm) || {};
-    const energy = formValues.gram * 100 / formValues.kcal;
+    const energy = (formValues.gram * 100 / formValues.kcal) || 0;
     const phosPercent = formValues.phosPercent / 100;
 
     const result = energy * phosPercent * 1000;
@@ -33,23 +36,23 @@ export default function Calculator() {
     return result;
   }
 
-  const handleSubmit: SubmitHandler<CalculatorForm> = (values, event) => {
-    // Runs on client
-    console.log({ values })
-  };
+  // const handleSubmit: SubmitHandler<CalculatorForm> = (values, event) => {
+  // Runs on client
+  // console.log({ values })
+  // };
 
   return (
     <>
-      <h2 class="color:primary-100">磷含量計算</h2>
+      <h2 class="color:primary-100">磷含量</h2>
       <div class="mb:16">
         <span>{handleCalculation()}</span>
         <span>mg/100 大卡</span>
       </div>
       <hr />
-      <Form class="d:grid gap-y:16" of={calculatorForm} onSubmit={handleSubmit}>
+      <Form class="d:grid gap-y:16" of={calculatorForm}>
         <div>
-          <strong class="f:24 color:primary-500">代謝能</strong>
-          <div class="d:grid grid:auto/1fr|1fr gap-x:16 mx:-8">
+          <strong class="f:20 color:primary-500">代謝能</strong>
+          <div class="d:grid grid:auto/1fr|1fr gap-x:16">
             <div>
               <Field
                 of={calculatorForm}
@@ -103,7 +106,7 @@ export default function Calculator() {
             </div>
           </div>
         </div>
-        <div class="mx:-8">
+        <div>
           <Field of={calculatorForm} name="phosPercent" validate={[required('Please enter your email.')]}>
             {(field) =>
               <TextInput
@@ -123,19 +126,19 @@ export default function Calculator() {
             }
           </Field>
         </div>
-        <div class="mx:-8">
+        {/* <div>
           <Field of={calculatorForm} name="name" validate={[required('Please enter your email.')]}>
             {(field) =>
               <>
-                <label class="label ml:8" for={field.name}>名稱</label>
+                <label class="label" for={field.name}>名稱</label>
                 <input id={field.name} class="input" type="text" value={field.value} {...field.props} maxLength={12} placeholder="主食罐的名稱" />
               </>
             }
           </Field>
-        </div>
-        <div>
-          <button type="submit">記下來</button>
-        </div>
+        </div> */}
+        {/* <div>
+          <button class="button-submit" type="submit">記下來</button>
+        </div> */}
       </Form >
     </>
   )

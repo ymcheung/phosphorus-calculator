@@ -8,11 +8,11 @@ dependencies:
     specifier: ^2.1.0
     version: 2.1.0(@babel/core@7.21.3)(solid-js@1.6.15)(vite@4.2.0)
   '@master/css':
-    specifier: 2.0.0-beta.136
-    version: 2.0.0-beta.136
+    specifier: 2.0.0-beta.142
+    version: 2.0.0-beta.142
   '@master/normal.css':
-    specifier: 2.0.0-beta.129
-    version: 2.0.0-beta.129
+    specifier: 2.0.0-beta.142
+    version: 2.0.0-beta.142
   '@modular-forms/solid':
     specifier: ^0.11.0
     version: 0.11.0(solid-js@1.6.15)
@@ -1538,29 +1538,19 @@ packages:
   /@ljharb/has-package-exports-patterns@0.0.2:
     resolution: {integrity: sha512-4/RWEeXDO6bocPONheFe6gX/oQdP/bEpv0oL4HqjPP5DCenBSt0mHgahppY49N0CpsaqffdwPq+TlX9CYOq2Dw==}
 
-  /@master/css@2.0.0-beta.136:
-    resolution: {integrity: sha512-3k/eo1OkvWjYD9PquF3ENKPwb0YrBMp0GZ/RwzijqM/5vVtqPKxjPokP3EZmK/n7+W+TMskLPFcdhIGV9UWwvA==}
+  /@master/css@2.0.0-beta.142:
+    resolution: {integrity: sha512-Ad+KVlHYwpQybRnekTm+9u8m85LcGnpTmab+VMFID4DDgjDYZOLPmstl//by0TViN8mqdK0EcIikuwy1CGwekQ==}
     hasBin: true
     dependencies:
-      '@master/keyframes.css': 2.0.0-beta.136
-      '@master/normal.css': 2.0.0-beta.136
-      '@techor/fs': 2.1.4
-      '@techor/log': 2.1.4
+      '@master/normal.css': 2.0.0-beta.142
+      '@techor/fs': 2.1.15
+      '@techor/log': 2.1.15
       chokidar: 3.5.3
       commander: 10.0.0
-      fast-glob: 3.2.12
     dev: false
 
-  /@master/keyframes.css@2.0.0-beta.136:
-    resolution: {integrity: sha512-ChP4ncdl55PrmePRECtNxrq3YxOhezTD8RYmx5DRd9MbwCBfCUlNFxDLdA4kbrV1Ub1keJKAB7PsFkSlFOMxDQ==}
-    dev: false
-
-  /@master/normal.css@2.0.0-beta.129:
-    resolution: {integrity: sha512-Y6cfGB+fX4ZwBaPHrQQwVTJUhQBdnXAijr7nba7JrNLs52+UlCDCQfQvnhQsqMNRZHFfQceKhsS04z8hLgrRaQ==}
-    dev: false
-
-  /@master/normal.css@2.0.0-beta.136:
-    resolution: {integrity: sha512-8TcfQ6+KHYPoz2ya9/5/LIOwSJDvqbkYRLPbZd9+3wiZaRqUbYgOb3SGOSDNxcDLdH6+m32kay3iFXvvKj+K7g==}
+  /@master/normal.css@2.0.0-beta.142:
+    resolution: {integrity: sha512-/CskgHrrTnxLm9K2abfvRQB3GzID9V5CeS/wJ+7Me7ClXW+Yx6xFHn1fXcpf19SfSTkUJf5oU/ozEk+xCEgqrg==}
     dev: false
 
   /@modular-forms/solid@0.11.0(solid-js@1.6.15):
@@ -1692,20 +1682,20 @@ packages:
       string.prototype.matchall: 4.0.8
     dev: true
 
-  /@techor/extend@2.1.4:
-    resolution: {integrity: sha512-l48zGsPEg5pOaGeTfC9j9lrKciGtk5jC2/3u+gLrvxWcc5xTwQ6NHzeSWKDRmWqjnNlC0AC167yijU0R2nLYaA==}
+  /@techor/extend@2.1.15:
+    resolution: {integrity: sha512-LNGDLCH+vz9Sd4NLNO++RP5PRTHs6Tnt1cLGVHLVqH6YoTUcCQ7TD41kzd0hm65KhiOan3brKJfUJkWhlaqWpw==}
     dev: false
 
-  /@techor/fs@2.1.4:
-    resolution: {integrity: sha512-d7MPUEZTs6cWb3FXRCTAe2sMADZvnLOJxCBHFSTUSZ4hMiTP1HYSYlo0QaC/c0vIns/2M/V8gSNtvEvzzzrU4Q==}
+  /@techor/fs@2.1.15:
+    resolution: {integrity: sha512-fZPKd6sOG67C0x4p6+ZVyLawmf2oFtPhuXxnR6Q0zoVdjYlE7vkNSPekedxLKtudJbJR6iYBdTIIfaJ8Op1NOg==}
     dependencies:
-      '@techor/extend': 2.1.4
+      '@techor/extend': 2.1.15
       fast-glob: 3.2.12
       upath: 2.0.1
     dev: false
 
-  /@techor/log@2.1.4:
-    resolution: {integrity: sha512-SjJ3+tOWdlFhgZzaIxJ+B2ZX88ld5GbDrAwUghV8tR70P+r9mBh2QupnmNBG1tLtp0wSoiYFSqishujYmBiXOw==}
+  /@techor/log@2.1.15:
+    resolution: {integrity: sha512-GtKuSHimZWg53lwYOkiREL1dVYUxl4Pg8MatfdQdoLr5iylR645jQgobKgdvDfalgucp5YdwG4ROFjNIfDP5Fg==}
     dev: false
 
   /@types/babel__core@7.20.0:

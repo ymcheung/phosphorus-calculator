@@ -14,7 +14,7 @@ export const config: Config = {
     fontSans: `font:system|-apple-system|'.SFNSText-Regular'|'San Francisco'|'Roboto'|'Segoe UI'|'Helvetica Neue'|'Lucida Grande'|sans-serif`,
     container: 'max-width:640px mx:auto px:24',
     label: 'd:inline-block mb:2 py:8 color:primary-300 font:18 font:bold line-height:1',
-    input: 'd:inline-block width:100% py:4 color:primary-500 font-weight:700 border-bottom:2|solid|shade-1300 outline:none border-color:primary-300:focus border-color:primary-500:not(:placeholder-shown) appearance:none {color:primary-500;font-weight:400}::placeholder',
+    input: 'd:inline-block width:100% py:4 color:primary-500 font-weight:700 border-bottom:2|solid|shade-1300 border-radius:0 outline:none border-color:primary-300:focus border-color:primary-500:not(:placeholder-shown) appearance:none {color:primary-500;font-weight:400}::placeholder',
     button: {
       submit: 'px:12 py:8 background-color:primary-500 {background-color:shade-1300}:disabled'
     }

@@ -43,7 +43,7 @@ export default function Calculator() {
 
   return (
     <>
-      <h2 class="color:primary-100">磷含量</h2>
+      <h2 class="color:primary-100 f:20">磷含量</h2>
       <div class="mb:16">
         <span>{handleCalculation()}</span>
         <span>mg/100 大卡</span>
@@ -51,7 +51,7 @@ export default function Calculator() {
       <hr />
       <Form class="d:grid gap-y:16" of={calculatorForm}>
         <div>
-          <strong class="f:20 color:primary-500">代謝能</strong>
+          <strong class="color:primary-500 f:20">代謝能</strong>
           <div class="d:grid grid:auto/1fr|1fr gap-x:16">
             <div>
               <Field

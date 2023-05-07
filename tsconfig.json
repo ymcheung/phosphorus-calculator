@@ -5,6 +5,12 @@
     "jsxImportSource": "solid-js",
     "types": [
       "vite-plugin-pwa/info"
-    ]
+    ],
+    "baseUrl": "src",
+    "paths": {
+      "@components/*": [
+        "components/*"
+      ]
+    }
   }
 }

@@ -3,10 +3,15 @@ import { createForm, Form, Field, required, setValue, getValue, getValues, Submi
 import { TextInput } from "./TextInput";
 
 type CalculatorForm = {
-  kcal?: number | undefined;
-  gram?: number | undefined;
-  phosPercent?: number | undefined;
-  name?: string | undefined;
+  kcal?: number;
+  gram?: number;
+  phosPercent?: number;
+  name?: string;
+}
+
+type OnBlurProps = {
+  name: 'kcal' | 'gram' | 'phosPercent';
+  value: number;
 }
 
 export default function Calculator() {
@@ -19,15 +24,15 @@ export default function Calculator() {
   // };
 
 
-  const handleOnBlur = (name, value) => {
+  const handleOnBlur = ({ name, value }: OnBlurProps) => {
     const valueIsNumber = !isNaN(value) ? value : 0;
-    setValue(calculatorForm, name, valueIsNumber)
-  }
+    setValue(calculatorForm, name, valueIsNumber);
+  };
 
   const handleCalculation = () => {
-    if (!getValues(calculatorForm)) return '?';
+    if (!getValue(calculatorForm, 'kcal') || !getValue(calculatorForm, 'gram') || !getValue(calculatorForm, 'phosPercent')) return '?';
 
-    const formValues = getValues(calculatorForm) || {};
+    const formValues = getValues(calculatorForm, { shouldActive: false }) || {};
     const energy = (formValues.gram * 100 / formValues.kcal) || 0;
     const phosPercent = formValues.phosPercent / 100;
 

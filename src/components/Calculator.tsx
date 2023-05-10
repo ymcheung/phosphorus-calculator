@@ -24,7 +24,7 @@ export default function Calculator() {
   // };
 
 
-  const handleOnBlur = ({ name, value }: OnBlurProps) => {
+  const handleOnBlur = (name, value) => {
     const valueIsNumber = !isNaN(value) ? value : 0;
     setValue(calculatorForm, name, valueIsNumber);
   };
@@ -32,7 +32,7 @@ export default function Calculator() {
   const handleCalculation = () => {
     if (!getValue(calculatorForm, 'kcal') || !getValue(calculatorForm, 'gram') || !getValue(calculatorForm, 'phosPercent')) return '?';
 
-    const formValues = getValues(calculatorForm, { shouldActive: false }) || {};
+    const formValues = getValues(calculatorForm) || {};
     const energy = (formValues.gram * 100 / formValues.kcal) || 0;
     const phosPercent = formValues.phosPercent / 100;
 

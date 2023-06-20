@@ -30,7 +30,9 @@ export default function Calculator() {
   };
 
   const handleCalculation = () => {
-    if (!getValue(calculatorForm, 'kcal') || !getValue(calculatorForm, 'gram') || !getValue(calculatorForm, 'phosPercent')) return '?';
+    if (!getValue(calculatorForm, 'kcal') || !getValue(calculatorForm, 'gram') || !getValue(calculatorForm, 'phosPercent')) return (
+      <span>先輸入主食罐的營養資訊</span>
+    );
 
     const formValues = getValues(calculatorForm) || {};
     const energy = (formValues.gram * 100 / formValues.kcal) || 0;
@@ -38,7 +40,12 @@ export default function Calculator() {
 
     const result = energy * phosPercent * 1000;
 
-    return result;
+    return (
+      <>
+        <span>{result}</span>
+        <span>mg/100 大卡</span>
+      </>
+    );
   }
 
   // const handleSubmit: SubmitHandler<CalculatorForm> = (values, event) => {
@@ -50,8 +57,7 @@ export default function Calculator() {
     <>
       <h2 class="color:primary-100 f:20">磷含量</h2>
       <div class="mb:16">
-        <span>{handleCalculation()}</span>
-        <span>mg/100 大卡</span>
+        {handleCalculation()}
       </div>
       <hr />
       <Form class="d:grid gap-y:16" of={calculatorForm}>
